@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seite nicht gefunden — LÜTHI Aufzüge</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<meta name="theme-color" content="#0b0c13">
+<!-- Bewusst eigenständig: keine Abhängigkeit von support.js oder dem
+     Design-System. Eine Fehlerseite muss auch dann funktionieren, wenn
+     genau das kaputt ist, was den Fehler ausgelöst hat. -->
+<style>
+  :root { --ink: #0b0c13; --brand: #f2412b; --text: #e9f0fa; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: clamp(24px, 6vw, 110px);
+    line-height: 1.6;
+  }
+  main { max-width: 46ch; }
+  .kicker {
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--brand); margin: 0 0 clamp(14px, 2.4vh, 24px);
+  }
+  h1 {
+    font-size: clamp(30px, 4.8vw, 62px); font-weight: 500;
+    letter-spacing: -0.025em; line-height: 1.05; margin: 0 0 clamp(12px, 2vh, 20px);
+  }
+  p { margin: 0 0 clamp(24px, 4vh, 40px); color: rgba(233, 240, 250, 0.62); text-wrap: pretty; }
+  a {
+    display: inline-block; padding: 13px 26px;
+    border: 1px solid var(--brand); border-radius: 8px;
+    color: var(--text); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+  a:hover { background: var(--brand); }
+  a:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">Fehler 404</p>
+  <h1>Diese Seite gibt es nicht.</h1>
+  <p>Die aufgerufene Adresse führt ins Leere — womöglich ein Tippfehler oder ein veralteter Link.</p>
+  <a href="/">Zur Startseite</a>
+</main>
+</body>
+</html>
