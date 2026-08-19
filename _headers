@@ -1,0 +1,22 @@
+# Cloudflare Pages — Header-Regeln
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Design-System liegt unter einem inhaltsadressierten Pfad (UUID im Ordnernamen),
+# darf daher unbegrenzt gecacht werden.
+/_ds/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Bilder haben KEINEN Hash im Dateinamen. Bewusst nur 1 Tag, damit ein
+# ausgetauschtes Foto zeitnah sichtbar wird.
+/assets/*
+  Cache-Control: public, max-age=86400
+
+/support.js
+  Cache-Control: public, max-age=3600

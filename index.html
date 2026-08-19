@@ -3,6 +3,58 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ---------- SEO / Social ----------
+     Diese Tags standen bisher im <helmet>-Block von <x-dc> und wurden erst zur
+     Laufzeit per JavaScript in den Head gehängt. Link-Vorschauen (WhatsApp,
+     LinkedIn, Facebook, Slack) führen kein JavaScript aus und sahen deshalb
+     weder Titel noch Beschreibung — die Tags gehören darum direkt hierhin. -->
+<title>LÜTHI Aufzüge — Aufzüge nach Mass</title>
+<meta name="description" content="LÜTHI Aufzüge – Aufzüge nach Mass. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen. Eigenfertigung in der Schweiz.">
+<link rel="canonical" href="https://www.xn--lthi-aufzge-thbi.ch/">
+<meta name="theme-color" content="#0b0c13">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LÜTHI Aufzüge">
+<meta property="og:locale" content="de_CH">
+<meta property="og:title" content="LÜTHI Aufzüge — Aufzüge nach Mass">
+<meta property="og:description" content="LÜTHI Aufzüge – Aufzüge nach Mass. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen. Eigenfertigung in der Schweiz.">
+<meta property="og:url" content="https://www.xn--lthi-aufzge-thbi.ch/">
+<meta property="og:image" content="https://www.xn--lthi-aufzge-thbi.ch/assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glasaufzug in einem Sichtbetontreppenhaus — LÜTHI Aufzüge">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LÜTHI Aufzüge — Aufzüge nach Mass">
+<meta name="twitter:description" content="LÜTHI Aufzüge – Aufzüge nach Mass. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen. Eigenfertigung in der Schweiz.">
+<meta name="twitter:image" content="https://www.xn--lthi-aufzge-thbi.ch/assets/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+
+<link rel="stylesheet" href="_ds/nocturne-cd2f5153-742c-4691-8b5f-d60367ed7a1f/styles.css">
+<script src="_ds/nocturne-cd2f5153-742c-4691-8b5f-d60367ed7a1f/_ds_bundle.js"></script>
+
+<!-- ---------- React lokal statt von unpkg.com ----------
+     support.js lädt React und ReactDOM sonst von unpkg.com. Fällt der CDN aus
+     oder ist er in einem Firmennetz gesperrt, bleibt die Seite LEER — das
+     Template ist bis zum React-Boot ausgeblendet.
+     window.__resources ist der im dc-runtime dafür vorgesehene Umleitungspunkt
+     (siehe cdnScriptFor() in support.js): steht hier ein Pfad, wird dieser
+     statt der CDN-URL geladen. Die Dateien unter /vendor sind Byte für Byte
+     identisch mit den unpkg-Originalen — geprüft gegen die SRI-Hashes, die in
+     support.js hinterlegt sind. Dieser Block MUSS vor support.js stehen. -->
+<script>
+window.__resources = {
+  "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "/vendor/react.production.min.js",
+  "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "/vendor/react-dom.production.min.js"
+};
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -14,18 +66,8 @@
 -->
 <x-dc>
 <helmet>
-<title>LÜTHI Aufzüge — Aufzüge nach Mass</title>
-<meta name="theme-color" content="#0b0c13">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
-<meta name="description" content="LÜTHI Aufzüge – Aufzüge nach Mass. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen. Eigenfertigung in der Schweiz.">
-<link rel="canonical" href="https://www.xn--lthi-aufzge-thbi.ch/">
-<link rel="stylesheet" href="_ds/nocturne-cd2f5153-742c-4691-8b5f-d60367ed7a1f/styles.css">
-<script src="_ds/nocturne-cd2f5153-742c-4691-8b5f-d60367ed7a1f/_ds_bundle.js"></script>
+<!-- Titel, Meta-Tags, Favicons, Stylesheet und ds-Bundle stehen jetzt direkt im
+     <head> des Dokuments (siehe oben). Hier bleibt nur der Token-Layer. -->
 <style>
   /* ---------- Lüthi Token-Layer (W6) ----------
      Nocturne liefert Typo- und Spacing-Basis. Farben, Metalle und Textstufen
