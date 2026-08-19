@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<!--
+  BILDNACHWEIS — OFFEN
+  assets/lift-primary.jpg und assets/lift-secondary.jpg sind als Kundenmaterial
+  eingebunden, die Herkunft ist aber nicht belegt (Befund B4 im Review).
+  Vor jedem Kundentermin klären. Product Truth ist die oberste Regel des Masterbriefs.
+-->
+<x-dc>
+<helmet>
+<title>LÜTHI Aufzüge — Aufzüge nach Mass</title>
+<meta name="theme-color" content="#0b0c13">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<meta name="description" content="LÜTHI Aufzüge – Aufzüge nach Mass. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen. Eigenfertigung in der Schweiz.">
+<link rel="canonical" href="https://www.xn--lthi-aufzge-thbi.ch/">
+<link rel="stylesheet" href="_ds/nocturne-cd2f5153-742c-4691-8b5f-d60367ed7a1f/styles.css">
+<script src="_ds/nocturne-cd2f5153-742c-4691-8b5f-d60367ed7a1f/_ds_bundle.js"></script>
+<style>
+  /* ---------- Lüthi Token-Layer (W6) ----------
+     Nocturne liefert Typo- und Spacing-Basis. Farben, Metalle und Textstufen
+     dieser Bühne kommen ab hier aus Tokens statt aus Inline-Hex-Werten. */
+  :root {
+    --lu-brand: #f2412b;
+    --lu-brand-soft: rgba(242, 65, 43, 0.55);
+    --lu-brand-glow: rgba(242, 65, 43, 0.24);
+
+    --lu-ink: #0b0c13;
+    --lu-ink-2: #101219;
+    --lu-ink-3: #14161d;
+
+    --lu-metal-d: #111318;
+    --lu-metal-m: #171a1f;
+    --lu-metal-l: #2c2f36;
+
+    --lu-glass: rgba(233, 240, 250, 1);
+    --lu-line: rgba(233, 240, 250, 0.12);
+    --lu-line-soft: rgba(233, 240, 250, 0.07);
+
+    --lu-t100: var(--color-text);
+    --lu-t80: color-mix(in srgb, var(--color-text) 80%, transparent);
+    --lu-t62: color-mix(in srgb, var(--color-text) 62%, transparent);
+    --lu-t44: color-mix(in srgb, var(--color-text) 44%, transparent);
+
+    --lu-shadow-hd: 0 2px 44px rgba(11, 12, 19, 0.7);
+    --lu-shadow-tx: 0 1px 18px rgba(11, 12, 19, 0.85);
+    /* W4: Randbeschriftungen brauchen eigenen Grund, nicht nur die Vignette */
+    --lu-shadow-edge: 0 1px 2px rgba(11, 12, 19, 0.95), 0 0 14px rgba(11, 12, 19, 0.85);
+
+    --lu-door-edge: 15px;
+    --lu-header-h: 62px;
+  }
+
+  html { background: var(--lu-ink); scroll-padding-top: var(--lu-header-h); }
+  body { margin: 0; -webkit-font-smoothing: antialiased; }
+  a { color: var(--color-text); text-decoration: none; }
+  a:hover { color: var(--color-text); }
+  :focus-visible { outline: 2px solid var(--lu-brand); outline-offset: 3px; }
+
+
+  /* ---------- B1: eigene Mobile-Choreografie, kein verkleinerter Desktop ---------- */
+  [data-lu="burger"] { display: none; }
+
+  @media (max-width: 900px) {
+    :root { --lu-header-h: 54px; }
+    [data-lu="nav"] { display: none !important; }
+    [data-lu="madein"] { display: none !important; }
+    [data-lu="burger"] { display: grid !important; }
+  }
+
+  @media (max-width: 720px) {
+    /* Panel an den rechten Rand, Textspalte bekommt eine feste Gasse daneben */
+    [data-lu="panel"] {
+      left: auto !important;
+      right: clamp(10px, 3vw, 20px) !important;
+      transform: translate(0, -50%) !important;
+      height: clamp(200px, 34vh, 300px) !important;
+      width: 58px !important;
+    }
+    [data-lu="copy"], [data-lu="stage"] { width: calc(100% - 108px) !important; }
+    /* Ebenen-Marker liegen sonst hinter dem Panel */
+    [data-lu="ticks"] { display: none !important; }
+    /* Nur ein Element unten — der State-Readout ist Werkzeug, die Legende erklärt */
+    [data-lu="state"] { display: none !important; }
+    [data-lu="legend"] { flex-wrap: wrap; white-space: normal !important; }
+    /* Der Copy-Block bekommt eigenen Grund. Die Textspalte steht links, das Panel
+       rechts — also trägt der Verlauf quer, nicht vertikal wie auf dem Desktop.
+       Verständlichkeit (Protected Value 01) geht hier der Bildwirkung vor. */
+    [data-lu="vignette"] {
+      background:
+        linear-gradient(90deg, rgba(11,12,19,0.93) 0%, rgba(11,12,19,0.85) 42%, rgba(11,12,19,0.5) 72%, rgba(11,12,19,0.2) 100%),
+        linear-gradient(180deg, rgba(11,12,19,0.6) 0%, rgba(11,12,19,0) 24%, rgba(11,12,19,0) 72%, rgba(11,12,19,0.66) 100%) !important;
+    }
+    [data-lu="taxonomy"] { flex-wrap: wrap !important; white-space: normal !important; gap: 8px 12px !important; font-size: 10.5px !important; letter-spacing: 0.22em !important; }
+    [data-lu="taxonomy"] [data-lu="rule"] { display: none !important; }
+  }
+
+  @media (max-width: 480px) {
+    [data-lu="panel"] { height: clamp(180px, 30vh, 250px) !important; width: 52px !important; }
+    [data-lu="copy"], [data-lu="stage"] { width: calc(100% - 92px) !important; }
+  }
+
+  /* Mobile-Menü */
+  [data-lu="menu"] {
+    position: fixed; inset: 0; z-index: 25;
+    background: var(--lu-ink);
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 4px; padding: 0 clamp(24px, 8vw, 64px);
+    opacity: 0; pointer-events: none; transition: opacity 240ms ease;
+  }
+  [data-lu="menu"][data-open="1"] { opacity: 1; pointer-events: auto; }
+  [data-lu="menu"] a {
+    padding: 16px 0; border-bottom: 1px solid var(--lu-line-soft);
+    font-size: clamp(20px, 5vw, 28px); font-weight: 500; letter-spacing: -0.01em;
+  }
+
+  [data-lu="eyebrow"] {
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--lu-t62); margin-bottom: clamp(14px, 2.4vh, 26px);
+  }
+  [data-lu="cta"] {
+    display: inline-flex; align-items: center; gap: 14px; padding: 13px 24px;
+    border: 1px solid var(--lu-brand); border-radius: var(--radius-md);
+    font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+    transition: background 220ms ease, box-shadow 220ms ease;
+  }
+  [data-lu="cta"]:hover { background: rgba(242, 65, 43, 0.12); box-shadow: 0 0 30px var(--lu-brand-glow); }
+  [data-lu="cta"] i { width: 20px; height: 1px; background: var(--lu-brand); display: block; }
+
+  /* ---------- Motion ---------- */
+  @keyframes luShaftDown { from { transform: translateY(-120vh); } to { transform: translateY(140vh); } }
+  @keyframes luShaftUp   { from { transform: translateY(140vh); }  to { transform: translateY(-120vh); } }
+  /* W2: ein einmaliger Bereitschaftsimpuls in neutralem Licht.
+     Rot bleibt ausschliesslich dem gewählten Zustand vorbehalten. */
+  @keyframes luReady {
+    0%, 100% { filter: drop-shadow(0 -1px 0 rgba(6,7,10,0.7)) drop-shadow(0 0 4px rgba(232,238,248,0.3)); }
+    50%      { filter: drop-shadow(0 -1px 0 rgba(6,7,10,0.7)) drop-shadow(0 0 10px rgba(232,238,248,0.62)) drop-shadow(0 0 22px rgba(232,238,248,0.28)); }
+  }
+  @keyframes luDrift {
+    0%   { transform: scale(1.006) translate3d(0, 0, 0); }
+    50%  { transform: scale(1.014) translate3d(-0.15%, -0.12%, 0); }
+    100% { transform: scale(1.006) translate3d(0, 0, 0); }
+  }
+  @keyframes luSweep {
+    0%   { transform: translate3d(0, -44%, 0); opacity: 0; }
+    14%  { opacity: 0.5; }
+    86%  { opacity: 0.5; }
+    100% { transform: translate3d(0, 44%, 0); opacity: 0; }
+  }
+  @keyframes luCabin { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.46; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-lu-anim] { animation: none !important; }
+    [data-lu="reftile"] img { transition: none !important; }
+  }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background: var(--lu-ink); color: var(--lu-t100); font-family: var(--font-body); --brand: #f2412b;">
+
+    <!-- ---------- Header: aus dem Hero herausgelöst, damit er über alle Sektionen trägt ---------- -->
+  <header ref="{{ headerRef }}" style="position: fixed; top: 0; left: 0; right: 0; z-index: 30; display: flex; align-items: center; gap: clamp(20px, 3vw, 48px); padding: clamp(11px, 1.6vh, 16px) clamp(24px, 6vw, 110px); background: linear-gradient(180deg, rgba(11,12,19,0.9) 0%, rgba(11,12,19,0.6) 62%, rgba(11,12,19,0) 100%); transform: translateY(-110%); opacity: 0; pointer-events: none; will-change: transform, opacity;">
+
+    <a href="#" aria-label="LÜTHI Aufzüge — Start" style="display: flex; flex-direction: column; align-items: center; gap: 5px; pointer-events: auto; filter: drop-shadow(0 1px 2px rgba(11,12,19,0.6));">
+      <svg width="18" height="23" viewBox="0 0 14 18" aria-hidden="true" style="display: block; color: var(--brand);"><line x1="1.5" y1="1" x2="12.5" y2="1" stroke="currentColor" stroke-width="1.5"></line><path d="M7 4.6 L12.4 9.9 H1.6 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="M7 11.6 L12.4 16.9 H1.6 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+      <svg width="18" height="23" viewBox="0 0 14 18" aria-hidden="true" style="display: block; color: var(--brand);"><path d="M7 6.4 L1.6 1.1 H12.4 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="M7 13.4 L1.6 8.1 H12.4 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><line x1="1.5" y1="17" x2="12.5" y2="17" stroke="currentColor" stroke-width="1.5"></line></svg>
+    </a>
+
+    <nav data-lu="nav" aria-label="Hauptnavigation" style="display: flex; align-items: center; gap: clamp(14px, 2.2vw, 34px); margin-left: auto; pointer-events: auto;">
+      <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Über uns</a>
+      <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Produkte</a>
+      <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Referenzen</a>
+      <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Wartung</a>
+      <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Modernisierung</a>
+      <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Kontakt</a>
+    </nav>
+
+    <div data-lu="madein" style="display: flex; align-items: center; gap: 10px; margin-left: clamp(16px, 2.4vw, 38px); pointer-events: auto;">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="display: block;"><rect x="0" y="0" width="14" height="14" rx="2" fill="#f2412b"></rect><rect x="6" y="3" width="2" height="8" fill="#ffffff"></rect><rect x="3" y="6" width="8" height="2" fill="#ffffff"></rect></svg>
+      <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 66%, transparent); white-space: nowrap;">Made in Switzerland</span>
+    </div>
+
+    <button ref="{{ burgerRef }}" data-lu="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" onClick="{{ onMenu }}" style="margin-left: auto; width: 44px; height: 44px; place-items: center; border: 1px solid var(--lu-line); border-radius: var(--radius-md); background: rgba(11,12,19,0.5); color: var(--lu-t100); cursor: pointer; pointer-events: auto;">
+      <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" style="display: block;"><rect y="0" width="18" height="1.6" fill="currentColor"></rect><rect y="5.2" width="18" height="1.6" fill="currentColor"></rect><rect y="10.4" width="18" height="1.6" fill="currentColor"></rect></svg>
+    </button>
+  </header>
+
+  <div ref="{{ menuRef }}" data-lu="menu" data-open="0" aria-hidden="true">
+    <a href="#">Über uns</a>
+    <a href="#">Produkte</a>
+    <a href="#">Referenzen</a>
+    <a href="#">Wartung</a>
+    <a href="#">Modernisierung</a>
+    <a href="#">Kontakt</a>
+  </div>
+
+  <main id="top">
+
+  <!-- ---------- W1: 400vh statt 640vh — fünf Ebenen à ~75vh Scrollweg ---------- -->
+  <section data-screen-label="Hero — Lift als Navigationsfläche" aria-label="Aufzüge nach Mass" ref="{{ heroRef }}" style="position: relative; height: 400vh;">
+    <div style="position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--lu-ink);">
+
+      <div ref="{{ plateARef }}" style="position: absolute; top: 50%; left: 50%; width: max(101.5vw, 152.5vh); aspect-ratio: 2834 / 1890; transform: translate(-50%, -50%); will-change: transform;">
+        <div data-lu-anim="drift" style="position: absolute; inset: 0; animation: luDrift 26s ease-in-out infinite;">
+          <!-- W8: WebP mit srcset, JPEG als Fallback -->
+          <img src="assets/lift-primary.jpg" alt="Glasaufzug in einem Sichtbetontreppenhaus, Türen geöffnet, seitlich ein Bedienpanel" fetchpriority="high" decoding="async" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div data-lu-anim="cabin" style="position: absolute; left: 43%; top: 33%; width: 15%; height: 22%; background: radial-gradient(60% 60% at 50% 40%, rgba(233,240,250,0.55), rgba(233,240,250,0) 74%); mix-blend-mode: screen; animation: luCabin 9s ease-in-out infinite; pointer-events: none;"></div>
+
+          <div style="position: absolute; left: 41.3%; top: 30.4%; width: 17.9%; height: 57.2%; overflow: hidden; pointer-events: none;">
+            <div ref="{{ leafLRef }}" style="position: absolute; left: 0; top: 0; width: 50.4%; height: 100%; overflow: hidden; transform: translateX(-100%); background: linear-gradient(101deg, rgba(232,241,250,0.14), rgba(214,226,240,0.04) 34%, rgba(240,246,252,0.16) 62%, rgba(200,212,228,0.06)); backdrop-filter: blur(1.1px) saturate(0.92) brightness(1.05); box-shadow: -18px 0 34px rgba(11,12,19,0.34), inset 0 0 0 1px rgba(226,235,246,0.14);">
+              <div ref="{{ reflexLRef }}" aria-hidden="true" style="position: absolute; top: -12%; bottom: -12%; left: -30%; width: 55%; transform: translateX(-40%) skewX(-14deg); background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(240,246,255,0.16) 45%, rgba(255,255,255,0) 100%); pointer-events: none;"></div>
+              <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 4.5%; background: linear-gradient(180deg, var(--lu-metal-m) 0%, var(--lu-metal-l) 55%, var(--lu-metal-d) 100%); box-shadow: 0 1px 0 rgba(233,240,250,0.16);"></div>
+              <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 4.5%; background: linear-gradient(0deg, var(--lu-metal-d) 0%, #262930 55%, var(--lu-metal-m) 100%); box-shadow: 0 -1px 0 rgba(233,240,250,0.12);"></div>
+              <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(200deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.06) 100%);"></div>
+              <div aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 6.5%; background: linear-gradient(90deg, rgba(120,128,142,0.55), rgba(214,222,232,0.7) 45%, rgba(96,104,118,0.5));"></div>
+              <div style="position: absolute; right: 0; top: 0; width: var(--lu-door-edge); height: 100%; background: linear-gradient(90deg, var(--lu-metal-m) 0%, var(--lu-metal-l) 48%, var(--lu-metal-d) 100%); box-shadow: -7px 0 12px rgba(11,12,19,0.3), inset 1px 0 0 rgba(233,240,250,0.14), inset -1px 0 0 rgba(233,240,250,0.1);"></div>
+            </div>
+            <div ref="{{ leafRRef }}" style="position: absolute; right: 0; top: 0; width: 50.4%; height: 100%; overflow: hidden; transform: translateX(100%); background: linear-gradient(79deg, rgba(232,241,250,0.14), rgba(214,226,240,0.04) 34%, rgba(240,246,252,0.16) 62%, rgba(200,212,228,0.06)); backdrop-filter: blur(1.1px) saturate(0.92) brightness(1.05); box-shadow: 18px 0 34px rgba(11,12,19,0.34), inset 0 0 0 1px rgba(226,235,246,0.14);">
+              <div ref="{{ reflexRRef }}" aria-hidden="true" style="position: absolute; top: -12%; bottom: -12%; right: -30%; width: 55%; transform: translateX(40%) skewX(14deg); background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(240,246,255,0.16) 45%, rgba(255,255,255,0) 100%); pointer-events: none;"></div>
+              <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 4.5%; background: linear-gradient(180deg, var(--lu-metal-m) 0%, var(--lu-metal-l) 55%, var(--lu-metal-d) 100%); box-shadow: 0 1px 0 rgba(233,240,250,0.16);"></div>
+              <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 4.5%; background: linear-gradient(0deg, var(--lu-metal-d) 0%, #262930 55%, var(--lu-metal-m) 100%); box-shadow: 0 -1px 0 rgba(233,240,250,0.12);"></div>
+              <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(160deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.06) 100%);"></div>
+              <div aria-hidden="true" style="position: absolute; right: 0; top: 0; bottom: 0; width: 6.5%; background: linear-gradient(270deg, rgba(120,128,142,0.55), rgba(214,222,232,0.7) 45%, rgba(96,104,118,0.5));"></div>
+              <div style="position: absolute; left: 0; top: 0; width: var(--lu-door-edge); height: 100%; background: linear-gradient(270deg, var(--lu-metal-m) 0%, var(--lu-metal-l) 48%, var(--lu-metal-d) 100%); box-shadow: 7px 0 12px rgba(11,12,19,0.3), inset -1px 0 0 rgba(233,240,250,0.14), inset 1px 0 0 rgba(233,240,250,0.1);"></div>
+            </div>
+            <div ref="{{ seamRef }}" style="position: absolute; left: 50%; top: 0; width: 16px; height: 100%; transform: translateX(-50%); opacity: 0; background: linear-gradient(180deg, rgba(233,240,250,0) 0%, rgba(233,240,250,0.42) 18%, rgba(233,240,250,0.42) 82%, rgba(233,240,250,0) 100%); mix-blend-mode: screen; pointer-events: none;"></div>
+            <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1.4%; pointer-events: none; background: linear-gradient(180deg, rgba(226,233,242,0.45) 0%, rgba(150,158,170,0.4) 45%, rgba(60,66,78,0.38) 100%);"></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-lu-anim="sweep" style="position: absolute; inset: 0; pointer-events: none; overflow: hidden;">
+        <div style="position: absolute; left: 0; right: 0; top: 0; height: 62%; background: linear-gradient(180deg, rgba(233,240,250,0) 0%, rgba(233,240,250,0.13) 48%, rgba(233,240,250,0.02) 62%, rgba(233,240,250,0) 100%); mix-blend-mode: screen; animation: luSweep 15s cubic-bezier(.45,0,.5,1) infinite;"></div>
+      </div>
+
+      <div ref="{{ vignetteRef }}" data-lu="vignette" style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(126% 96% at 62% 48%, rgba(11,12,19,0) 32%, rgba(11,12,19,0.55) 100%), linear-gradient(90deg, rgba(11,12,19,0.93) 0%, rgba(11,12,19,0.66) 22%, rgba(11,12,19,0.12) 46%, rgba(11,12,19,0) 62%);"></div>
+
+      <!-- W4: durchgehender Grund unter den Randbeschriftungen, damit sie auf hellen Ebenen lesbar bleiben -->
+      <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 130px; pointer-events: none; background: linear-gradient(0deg, rgba(11,12,19,0.82) 0%, rgba(11,12,19,0.42) 46%, rgba(11,12,19,0) 100%);"></div>
+
+      <div ref="{{ darkRef }}" style="position: absolute; inset: 0; pointer-events: none; opacity: 0; background: var(--lu-ink); overflow: hidden;">
+        <div ref="{{ shaftRef }}" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0; transition: opacity 360ms ease;">
+          <div data-shaft-bar style="position: absolute; left: 16%; top: 0; width: 1px; height: 52vh; background: linear-gradient(180deg, rgba(233,240,250,0) 0%, rgba(233,240,250,0.4) 50%, rgba(233,240,250,0) 100%);"></div>
+          <div data-shaft-bar style="position: absolute; left: 44%; top: 0; width: 2px; height: 34vh; background: linear-gradient(180deg, rgba(233,240,250,0) 0%, rgba(233,240,250,0.22) 50%, rgba(233,240,250,0) 100%);"></div>
+          <div data-shaft-bar style="position: absolute; left: 71%; top: 0; width: 1px; height: 64vh; background: linear-gradient(180deg, rgba(233,240,250,0) 0%, rgba(233,240,250,0.32) 50%, rgba(233,240,250,0) 100%);"></div>
+          <div data-shaft-bar style="position: absolute; left: 88%; top: 0; width: 1px; height: 40vh; background: linear-gradient(180deg, rgba(242,65,43,0) 0%, rgba(242,65,43,0.28) 50%, rgba(242,65,43,0) 100%);"></div>
+        </div>
+      </div>
+
+      <div data-lu="copy" style="position: absolute; left: clamp(24px, 6vw, 110px); top: clamp(58px, 11vh, 130px); bottom: clamp(22px, 4vh, 42px); width: clamp(260px, 42vw, 580px); display: flex; flex-direction: column; justify-content: space-between; gap: clamp(18px, 3.5vh, 52px); pointer-events: none;">
+        <div ref="{{ heroCopyRef }}" style="pointer-events: auto; transform: translateY(clamp(60px, 9vh, 110px)); will-change: transform, opacity;">
+          <div style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin-left: 4px; margin-bottom: clamp(14px, 2.4vh, 26px);">LÜTHI Aufzüge</div>
+          <h1 style="font-size: clamp(34px, 5.4vw, 90px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.02; margin: 0 0 clamp(12px, 2vh, 22px); text-shadow: var(--lu-shadow-hd);">Aufzüge nach Mass.</h1>
+          <p style="margin: 0 0 clamp(20px, 3.4vh, 40px); font-size: clamp(15px, 1.15vw, 19px); line-height: 1.5; max-width: 32ch; color: var(--lu-t80); text-shadow: var(--lu-shadow-tx); text-wrap: pretty;">Konstruiert für Gebäude, Nutzung und konkrete Anforderungen.</p>
+          <a href="#" data-lu="cta">Projekt besprechen<i></i></a>
+        </div>
+
+        <div ref="{{ legendRef }}" data-lu="legend" style="display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; white-space: nowrap; pointer-events: none;"><span style="width: 22px; height: 1px; background: var(--lu-brand); flex: none;"></span><span style="font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 68%, transparent); text-shadow: var(--lu-shadow-edge);">Scroll — Annäherung</span><span style="font-size: 9px; letter-spacing: 0.28em; color: var(--lu-t44);">·</span><span ref="{{ legendActRef }}" style="font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 52%, transparent); text-shadow: var(--lu-shadow-edge);">Klick — Aufzugsaktion</span></div>
+      </div>
+
+      <div data-lu="panel" style="position: absolute; left: min(calc(67.5% - 5px), 100% - 74px); top: 50%; transform: translate(-50%, calc(-44% + 30px)); width: clamp(62px, calc(4.4vw + 10px), 86px); height: clamp(260px, 46vh, 520px); pointer-events: auto; border-radius: 4px; padding: clamp(12px, 1.8vh, 20px) 0 clamp(18px, 2.6vh, 30px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; background: radial-gradient(130% 55% at 28% 18%, rgba(255,255,255,0.045), rgba(255,255,255,0) 62%), radial-gradient(100% 48% at 72% 70%, rgba(10,11,14,0.4), rgba(10,11,14,0) 68%), radial-gradient(60% 30% at 55% 42%, rgba(255,255,255,0.025), rgba(255,255,255,0) 70%), linear-gradient(96deg, #34373c 0%, #3b3e44 16%, #303338 42%, #2a2d32 60%, #35383d 78%, #2e3136 100%); box-shadow: inset 1px 0 0 rgba(255,255,255,0.1), inset -1px 0 0 rgba(6,7,10,0.7), inset 0 1px 0 rgba(255,255,255,0.09), inset 0 -1px 0 rgba(5,6,9,0.65), 0 0 0 2px rgba(11,12,19,0.5), 0 4px 10px rgba(11,12,19,0.55), -14px 24px 44px rgba(11,12,19,0.48), -34px 52px 92px rgba(11,12,19,0.28);">
+        <div aria-hidden="true" style="position: absolute; inset: 0; border-radius: 4px; pointer-events: none; background: linear-gradient(206deg, rgba(240,245,252,0.08) 0%, rgba(240,245,252,0.03) 22%, rgba(255,255,255,0) 48%), linear-gradient(0deg, rgba(5,6,9,0.3) 0%, rgba(5,6,9,0) 26%);"></div>
+        <div aria-hidden="true" style="position: absolute; inset: 0; border-radius: 4px; pointer-events: none; opacity: 0.18; background: linear-gradient(90deg, rgba(40,46,58,0.26) 0%, rgba(40,46,58,0) 14%, rgba(40,46,58,0.12) 38%, rgba(40,46,58,0) 52%, rgba(40,46,58,0.18) 78%, rgba(40,46,58,0.32) 100%);"></div>
+        <div aria-hidden="true" style="position: absolute; top: 0; left: 30%; right: 4%; height: 1px; pointer-events: none; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(240,245,252,0.28) 78%, rgba(240,245,252,0.07) 100%);"></div>
+        <div aria-hidden="true" style="position: absolute; right: -4px; top: 1px; bottom: -3px; width: 4px; border-radius: 0 3px 3px 0; pointer-events: none; background: linear-gradient(180deg, #26292e 0%, #1b1e22 42%, var(--lu-metal-d) 100%);"></div>
+        <div aria-hidden="true" style="position: absolute; left: 38%; bottom: -30px; width: 210%; height: 34px; transform: translateX(-50%) skewX(14deg); pointer-events: none; background: radial-gradient(50% 100% at 52% 0%, rgba(11,12,19,0.55), rgba(11,12,19,0));"></div>
+
+        <button ref="{{ upRef }}" type="button" aria-label="Eine Ebene aufwärts" onClick="{{ onUp }}" style="position: relative; width: 100%; height: 40px; display: grid; place-items: center; border: 0; background: transparent; color: #c7cad0; cursor: pointer; transition: color 200ms ease, filter 200ms ease, opacity 200ms ease, transform 90ms ease;" style-hover="filter: brightness(1.32);" style-active="transform: translateY(1px); filter: brightness(0.92);">
+          <svg width="26.4" height="33" viewBox="0 0 14 18" aria-hidden="true" style="display: block; filter: drop-shadow(0 -1px 0 rgba(6,7,10,0.7)) drop-shadow(0 1px 0 rgba(255,255,255,0.07)) drop-shadow(0 0 4px rgba(232,238,248,0.3)) drop-shadow(0 0 12px rgba(232,238,248,0.12));"><rect x="0.5" y="0" width="13" height="2" fill="currentColor"></rect><path d="M7 3.6 L13.5 9.2 H0.5 Z" fill="currentColor"></path><path d="M7 10.6 L13.5 16.2 H0.5 Z" fill="currentColor"></path></svg>
+        </button>
+        <button ref="{{ downRef }}" type="button" aria-label="Eine Ebene abwärts" onClick="{{ onDown }}" style="position: relative; width: 100%; height: 40px; display: grid; place-items: center; border: 0; background: transparent; color: #c7cad0; cursor: pointer; transition: color 200ms ease, filter 200ms ease, opacity 200ms ease, transform 90ms ease;" style-hover="filter: brightness(1.32);" style-active="transform: translateY(1px); filter: brightness(0.92);">
+          <svg width="26.4" height="33" viewBox="0 0 14 18" aria-hidden="true" style="display: block; filter: drop-shadow(0 -1px 0 rgba(6,7,10,0.7)) drop-shadow(0 1px 0 rgba(255,255,255,0.07)) drop-shadow(0 0 4px rgba(232,238,248,0.3)) drop-shadow(0 0 12px rgba(232,238,248,0.12));"><path d="M7 7.4 L0.5 1.8 H13.5 Z" fill="currentColor"></path><path d="M7 14.4 L0.5 8.8 H13.5 Z" fill="currentColor"></path><rect x="0.5" y="16" width="13" height="2" fill="currentColor"></rect></svg>
+        </button>
+        <div aria-hidden="true" style="position: relative; writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); font-family: var(--font-heading); font-size: clamp(20px, 3.4vh, 40px); font-weight: 700; letter-spacing: 0.1em; color: var(--lu-brand); line-height: 1; margin: 30px 0 0; text-shadow: 0 -1px 0 rgba(6,7,10,0.6), 0 1px 10px rgba(242,65,43,0.45), 0 3px 24px rgba(242,65,43,0.24);">LÜTHI</div>
+      </div>
+
+      <div data-lu="ticks" style="position: absolute; right: clamp(20px, 3.4vw, 62px); top: 50%; transform: translateY(-50%);">
+        <div ref="{{ ticksRef }}" role="group" aria-label="Ebenen" style="display: flex; flex-direction: column; align-items: center; gap: 9px; padding-top: clamp(6px, 1vh, 12px);">
+          <button type="button" aria-label="Ebene 1 — Lift offen" onClick="{{ onLevel0 }}" style="width: 46px; height: 18px; display: grid; place-items: center; border: 0; background: none; padding: 0; cursor: pointer;"><span style="width: 20px; height: 2px; background: #f2412b; display: block; box-shadow: 0 0 4px rgba(11,12,19,0.5); transition: width 300ms ease, background 300ms ease;"></span></button>
+          <button type="button" aria-label="Ebene 2 — Nicht aus dem Katalog" onClick="{{ onLevel1 }}" style="width: 46px; height: 18px; display: grid; place-items: center; border: 0; background: none; padding: 0; cursor: pointer;"><span style="width: 10px; height: 2px; background: rgba(17,19,24,0.85); display: block; box-shadow: 0 0 3px rgba(255,255,255,0.25); transition: width 300ms ease, background 300ms ease;"></span></button>
+          <button type="button" aria-label="Ebene 3 — Menschen, Waren, Fahrzeuge" onClick="{{ onLevel2 }}" style="width: 46px; height: 18px; display: grid; place-items: center; border: 0; background: none; padding: 0; cursor: pointer;"><span style="width: 10px; height: 2px; background: rgba(17,19,24,0.85); display: block; box-shadow: 0 0 3px rgba(255,255,255,0.25); transition: width 300ms ease, background 300ms ease;"></span></button>
+          <button type="button" aria-label="Ebene 4 — Konstruktion" onClick="{{ onLevel3 }}" style="width: 46px; height: 18px; display: grid; place-items: center; border: 0; background: none; padding: 0; cursor: pointer;"><span style="width: 10px; height: 2px; background: rgba(17,19,24,0.85); display: block; box-shadow: 0 0 3px rgba(255,255,255,0.25); transition: width 300ms ease, background 300ms ease;"></span></button>
+          <button type="button" aria-label="Ebene 5 — Eigenfertigung" onClick="{{ onLevel4 }}" style="width: 46px; height: 18px; display: grid; place-items: center; border: 0; background: none; padding: 0; cursor: pointer;"><span style="width: 10px; height: 2px; background: rgba(17,19,24,0.85); display: block; box-shadow: 0 0 3px rgba(255,255,255,0.25); transition: width 300ms ease, background 300ms ease;"></span></button>
+        </div>
+      </div>
+
+      <div ref="{{ stage1Ref }}" data-lu="stage" data-screen-label="S02 — Nicht aus dem Katalog" style="position: absolute; left: clamp(24px, 6vw, 110px); top: 50%; transform: translateY(-50%); width: clamp(260px, 42vw, 580px); opacity: 0; pointer-events: none; will-change: transform, opacity;">
+        <div data-lu="eyebrow" style="margin-bottom: clamp(14px, 2.4vh, 26px);">LÜTHI Prinzip</div>
+        <h2 style="font-size: clamp(30px, 4.8vw, 80px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.04; margin: 0 0 clamp(12px, 2vh, 22px); text-shadow: var(--lu-shadow-hd); max-width: none;">Nicht aus dem Katalog.</h2>
+        <p style="margin: 0 0 clamp(14px, 2.2vh, 24px); font-size: clamp(16px, 1.3vw, 22px); line-height: 1.45; color: var(--lu-brand); font-weight: 500; text-shadow: var(--lu-shadow-tx);">Die Aufgabe bestimmt den Aufzug.</p>
+        <p style="margin: 0 0 clamp(18px, 3vh, 34px); font-size: clamp(13px, 0.95vw, 16px); line-height: 1.55; max-width: 30ch; color: var(--lu-t62); text-shadow: var(--lu-shadow-tx); text-wrap: pretty;">Einbausituation, Nutzung und Anforderungen bilden den Ausgangspunkt der Konstruktion.</p>
+        <div data-lu="taxonomy" style="display: flex; align-items: center; gap: 10px; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--lu-brand); white-space: nowrap; text-shadow: var(--lu-shadow-edge);"><span>Anforderung</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span>Konstruktion</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span>Lösung</span></div>
+      </div>
+
+      <div ref="{{ stage2Ref }}" data-lu="stage" data-screen-label="S03 — Menschen Waren Fahrzeuge" style="position: absolute; left: clamp(24px, 6vw, 110px); top: 50%; transform: translateY(-50%); width: clamp(260px, 42vw, 580px); opacity: 0; pointer-events: none; will-change: transform, opacity;">
+        <div data-lu="eyebrow" style="margin-bottom: clamp(14px, 2.4vh, 26px);">Bandbreite</div>
+        <h2 style="font-size: clamp(30px, 4.8vw, 80px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.04; margin: 0 0 clamp(12px, 2vh, 22px); text-shadow: var(--lu-shadow-hd); max-width: none;">Menschen.<br>Waren.<br>Fahrzeuge.</h2>
+        <p style="margin: 0 0 clamp(18px, 3vh, 34px); font-size: clamp(14px, 1.05vw, 18px); line-height: 1.5; max-width: 34ch; color: color-mix(in srgb, var(--color-text) 75%, transparent); text-shadow: var(--lu-shadow-tx); text-wrap: pretty;">Vom Personenaufzug bis zur industriellen Transport- und Sonderanlage.</p>
+        <div data-lu="taxonomy" style="display: flex; align-items: center; gap: 12px; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--lu-brand); white-space: nowrap; text-shadow: var(--lu-shadow-edge);"><span>Personen</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span>Lasten</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span>Fahrzeuge</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span>Spezial</span></div>
+      </div>
+
+      <div ref="{{ stage3Ref }}" data-lu="stage" data-screen-label="S04 — Wenn Standard nicht passt" style="position: absolute; left: clamp(24px, 6vw, 110px); top: 50%; transform: translateY(-50%); width: clamp(260px, 42vw, 580px); opacity: 0; pointer-events: none; will-change: transform, opacity;">
+        <div data-lu="eyebrow" style="margin-bottom: clamp(14px, 2.4vh, 26px);">Konstruktion</div>
+        <h2 style="font-size: clamp(30px, 4.8vw, 80px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.04; margin: 0 0 clamp(12px, 2vh, 22px); text-shadow: var(--lu-shadow-hd); max-width: none;">Wenn Standard<br>nicht passt.</h2>
+        <p style="margin: 0 0 clamp(18px, 3vh, 34px); font-size: clamp(13px, 0.95vw, 16px); line-height: 1.55; max-width: 32ch; color: var(--lu-t62); text-shadow: var(--lu-shadow-tx); text-wrap: pretty;">Eigene Konstruktion schafft Spielraum für Abmessungen, Türsysteme und besondere technische Anforderungen.</p>
+        <div data-lu="taxonomy" style="display: flex; align-items: center; gap: 12px; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--lu-brand); white-space: nowrap; text-shadow: var(--lu-shadow-edge);"><span>Abmessung</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span>Türsystem</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span>Technik</span></div>
+      </div>
+
+      <div ref="{{ stage4Ref }}" data-lu="stage" data-screen-label="S05 — Eigenfertigung" style="position: absolute; left: clamp(24px, 6vw, 110px); top: 50%; transform: translateY(-50%); width: clamp(260px, 42vw, 580px); opacity: 0; pointer-events: none; will-change: transform, opacity;">
+        <div data-lu="eyebrow" style="margin-bottom: clamp(18px, 3vh, 34px);">Eigenfertigung</div>
+        <h2 style="font-size: clamp(30px, 4.8vw, 80px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.04; margin: 0 0 clamp(16px, 2.6vh, 30px); text-shadow: var(--lu-shadow-hd); max-width: none;">Wer selbst baut,<br>kann anders lösen.</h2>
+        <p style="margin: 0 0 clamp(22px, 3.6vh, 42px); font-size: clamp(13px, 0.95vw, 16px); line-height: 1.6; max-width: 32ch; color: var(--lu-t62); text-shadow: var(--lu-shadow-tx); text-wrap: pretty;">Eigene Konstruktion und ein hoher Eigenproduktionsanteil schaffen Spielraum für Lösungen ausserhalb des Standards.</p>
+        <div data-lu="taxonomy" style="display: flex; align-items: center; gap: 12px; font-size: 9.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--lu-brand); white-space: nowrap; text-shadow: var(--lu-shadow-edge);"><span>Konstruktion</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span>Eigenproduktion</span><span data-lu="rule" style="width: 14px; height: 1px; background: var(--lu-brand-soft);"></span><span style="font-weight: 600;">Oberaargau</span></div>
+        <a href="#" data-lu="cta" style="margin-top: clamp(22px, 3.6vh, 42px); pointer-events: auto;">Gespräch vereinbaren<i></i></a>
+      </div>
+
+      <div ref="{{ stateRef }}" data-lu="state" style="position: absolute; right: clamp(20px, 3.4vw, 62px); bottom: clamp(22px, 4vh, 42px); display: flex; align-items: center; gap: 12px; pointer-events: none;">
+        <span ref="{{ stateTextRef }}" role="status" aria-live="polite" style="font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 72%, transparent); white-space: nowrap; text-shadow: var(--lu-shadow-edge);">00 Initial — Lift offen</span>
+        <span style="width: 22px; height: 1px; background: var(--lu-brand);"></span>
+      </div>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;brandAccent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f2412b&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#f2412b&quot;,&quot;#d8452c&quot;,&quot;#e06a1f&quot;],&quot;section&quot;:&quot;Marke&quot;},&quot;doorSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1350,&quot;min&quot;:800,&quot;max&quot;:2200,&quot;step&quot;:50,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;approachIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:1.8,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;scrubSmoothing&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.1,&quot;min&quot;:0.03,&quot;max&quot;:0.5,&quot;step&quot;:0.01,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;calmMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;showStateReadout&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  els = {};
+  cbs = {};
+  target = 0;
+  shown = 0;
+  levels = 5;
+  timers = [];
+  menuOpen = false;
+
+  ref(name) {
+    if (!this.cbs[name]) this.cbs[name] = (el) => { this.els[name] = el; };
+    return this.cbs[name];
+  }
+
+  renderVals() {
+    const r = (n) => this.ref(n);
+    const vals = {
+      rootRef: r('root'), heroRef: r('hero'), plateARef: r('plateA'),
+      leafLRef: r('leafL'), leafRRef: r('leafR'), seamRef: r('seam'),
+      reflexLRef: r('reflexL'), reflexRRef: r('reflexR'), darkRef: r('dark'), shaftRef: r('shaft'),
+      vignetteRef: r('vignette'), ticksRef: r('ticks'), upRef: r('up'), downRef: r('down'),
+      stateRef: r('state'), stateTextRef: r('stateText'), heroCopyRef: r('heroCopy'),
+      legendRef: r('legend'), legendActRef: r('legendAct'),
+      stage1Ref: r('stage1'), stage2Ref: r('stage2'), stage3Ref: r('stage3'), stage4Ref: r('stage4'),
+      headerRef: r('header'), menuRef: r('menu'), burgerRef: r('burger'),
+      /* B2: beide Tasten folgen derselben Logik — eine Ebene, nicht ein Sprung ins Erdgeschoss */
+      onUp: () => this.ride(-1),
+      onDown: () => this.ride(1),
+      onMenu: () => this.toggleMenu()
+    };
+    for (let i = 0; i < this.levels; i++) {
+      vals['onLevel' + i] = ((n) => () => this.rideTo(n))(i);
+    }
+    return vals;
+  }
+
+  componentDidMount() {
+    this.applyProps();
+    this.setDoors(false, 0);
+
+    /* B1: auf schmalen Viewports ist der Header die einzige Navigation.
+       Er darf dort nicht erst mit dem Scroll einfahren, sonst ist das Menü
+       auf dem ersten Screen unerreichbar. */
+    this.readViewport = () => {
+      this.compactHeader = typeof matchMedia === 'function' && matchMedia('(max-width: 900px)').matches;
+    };
+    this.readViewport();
+
+    this.onScroll = () => this.measure();
+    addEventListener('scroll', this.onScroll, { passive: true });
+    this.onResize = () => { this.readViewport(); this.measure(); };
+    addEventListener('resize', this.onResize);
+
+    /* W3: kein preventDefault mehr. Eine echte Nutzereingabe bricht nur die
+       programmatische Fahrt ab — die Türmechanik läuft sauber zu Ende.
+       Scroll und Klick bleiben getrennte Zuständigkeiten (Masterbrief §15/§16). */
+    this.onUserScroll = () => { if (this.scrollRaf) this.abortScroll(); };
+    addEventListener('wheel', this.onUserScroll, { passive: true });
+    addEventListener('touchstart', this.onUserScroll, { passive: true });
+    this.onKey = (e) => {
+      if (e.key === 'Escape' && this.menuOpen) this.toggleMenu();
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' ', 'Home', 'End'].includes(e.key)) this.onUserScroll();
+    };
+    addEventListener('keydown', this.onKey);
+
+    /* Ankerklicks fahren wie der Aufzug — kein globales scroll-behavior,
+       das sonst mit der eigenen Scroll-Animation kollidieren würde. */
+    this.onAnchor = (e) => {
+      const a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a) return;
+      const id = a.getAttribute('href').slice(1);
+      const el = id ? document.getElementById(id) : null;
+      if (!el && id !== 'top') return;
+      e.preventDefault();
+      if (this.menuOpen) this.toggleMenu();
+      const y = id === 'top' ? 0 : el.getBoundingClientRect().top + scrollY - 74;
+      this.elevatorScroll(Math.max(0, y));
+    };
+    addEventListener('click', this.onAnchor);
+
+    this.applyPointerLanguage();
+    this.measure();
+    this.shown = this.target;
+    this.running = true;
+    this.loop();
+
+    /* W2: ein einziger Bereitschaftsimpuls, dann Ruhe. Kein Dauerblinken. */
+    this.after(1500, () => this.readyPulse());
+  }
+
+  componentDidUpdate() { this.applyProps(); }
+
+  componentWillUnmount() {
+    this.running = false;
+    removeEventListener('scroll', this.onScroll);
+    removeEventListener('resize', this.onResize);
+    removeEventListener('wheel', this.onUserScroll);
+    removeEventListener('touchstart', this.onUserScroll);
+    removeEventListener('keydown', this.onKey);
+    removeEventListener('click', this.onAnchor);
+    if (this.rafId) cancelAnimationFrame(this.rafId);
+    if (this.scrollRaf) cancelAnimationFrame(this.scrollRaf);
+    this.timers.forEach(clearTimeout);
+  }
+
+  applyProps() {
+    if (this.els.root) this.els.root.style.setProperty('--brand', this.props.brandAccent ?? '#f2412b');
+    if (this.els.state) this.els.state.style.display = (this.props.showStateReadout ?? true) ? 'flex' : 'none';
+  }
+
+  after(ms, fn) { this.timers.push(setTimeout(fn, ms)); }
+
+  say(label) {
+    const el = this.els.stateText;
+    if (el && el.textContent !== label) el.textContent = label;
+  }
+
+  get calm() {
+    const pref = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return pref || !!(this.props.calmMotion ?? false);
+  }
+
+  /* B1: auf Touch ist „Klick" die falsche Sprache */
+  applyPointerLanguage() {
+    const coarse = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+    if (coarse && this.els.legendAct) this.els.legendAct.textContent = 'Tippen — Aufzugsaktion';
+  }
+
+  readyPulse() {
+    if (this.calm) return;
+    [this.els.up, this.els.down].forEach((b) => {
+      const svg = b && b.querySelector('svg');
+      if (!svg) return;
+      svg.style.animation = 'luReady 1400ms ease-in-out 1';
+      this.after(1500, () => { svg.style.animation = 'none'; });
+    });
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    const m = this.els.menu, b = this.els.burger;
+    if (m) { m.setAttribute('data-open', this.menuOpen ? '1' : '0'); m.setAttribute('aria-hidden', this.menuOpen ? 'false' : 'true'); }
+    if (b) { b.setAttribute('aria-expanded', this.menuOpen ? 'true' : 'false'); b.setAttribute('aria-label', this.menuOpen ? 'Menü schliessen' : 'Menü öffnen'); }
+    document.documentElement.style.overflow = this.menuOpen ? 'hidden' : '';
+  }
+
+  setButtonsEnabled(on) {
+    [this.els.up, this.els.down].forEach((b) => {
+      if (!b) return;
+      b.setAttribute('aria-disabled', on ? 'false' : 'true');
+      b.style.cursor = on ? 'pointer' : 'default';
+    });
+  }
+
+  /* ---------- doors: real centre-opening glass leaves over the aperture ---------- */
+  setDoors(closed, ms) {
+    const L = this.els.leafL, R = this.els.leafR;
+    if (!L || !R) return;
+    const t = ms ? 'transform ' + ms + 'ms cubic-bezier(.32,.01,.24,1), filter ' + Math.round(ms * 0.4) + 'ms ease' : 'none';
+    L.style.transition = t;
+    R.style.transition = t;
+    if (ms) { L.style.filter = 'blur(0.5px)'; R.style.filter = 'blur(0.5px)'; }
+    L.style.transform = closed ? 'translateX(-0.6%)' : 'translateX(-100%)';
+    R.style.transform = closed ? 'translateX(0.6%)' : 'translateX(100%)';
+    const rl = this.els.reflexL, rr = this.els.reflexR;
+    if (rl && rr) {
+      const rt = ms ? 'transform ' + Math.round(ms * 1.15) + 'ms cubic-bezier(.32,.01,.24,1)' : 'none';
+      rl.style.transition = rt; rr.style.transition = rt;
+      rl.style.transform = closed ? 'translateX(170%) skewX(-14deg)' : 'translateX(-40%) skewX(-14deg)';
+      rr.style.transform = closed ? 'translateX(-170%) skewX(14deg)' : 'translateX(40%) skewX(14deg)';
+    }
+    const seam = this.els.seam;
+    if (seam) {
+      if (closed && ms) {
+        seam.style.transition = 'none';
+        seam.style.width = '16px'; seam.style.opacity = '0.55';
+        void seam.offsetWidth;
+        seam.style.transition = 'width ' + ms + 'ms cubic-bezier(.32,.01,.24,1), opacity ' + ms + 'ms ease';
+        seam.style.width = '2px'; seam.style.opacity = '0.85';
+      } else {
+        seam.style.transition = 'opacity ' + Math.round((ms || 300) * 0.4) + 'ms ease';
+        seam.style.opacity = '0';
+      }
+    }
+    if (ms) this.after(ms, () => {
+      L.style.filter = 'none'; R.style.filter = 'none';
+      if (!closed) return;
+      L.style.transition = 'transform 220ms cubic-bezier(.2,.7,.2,1)';
+      R.style.transition = 'transform 220ms cubic-bezier(.2,.7,.2,1)';
+      L.style.transform = 'translateX(0)';
+      R.style.transform = 'translateX(0)';
+    });
+  }
+
+  /* ---------- click = elevator action: close, depart, travel, arrive, open ---------- */
+  ride(dir) {
+    const cur = Math.round(this.shown * (this.levels - 1));
+    const next = Math.min(this.levels - 1, Math.max(0, cur + dir));
+    this.rideTo(next, dir);
+  }
+
+  rideTo(level, dirHint) {
+    if (this.locked) return;
+    const cur = Math.round(this.shown * (this.levels - 1));
+    if (level === cur) { this.nudge(); return; }
+    const dir = dirHint || (level > cur ? 1 : -1);
+    const calm = this.calm;
+    const doorMs = calm ? 800 : (this.props.doorSpeed ?? 1350);
+    this.locked = true;
+    this.setButtonsEnabled(false);
+
+    const btn = dir < 0 ? this.els.up : this.els.down;
+    const other = dir < 0 ? this.els.down : this.els.up;
+    const brand = this.props.brandAccent ?? '#f2412b';
+    if (btn) { btn.style.animation = 'none'; btn.style.color = brand; btn.style.filter = 'drop-shadow(0 0 6px rgba(242,65,43,0.5)) drop-shadow(0 0 16px rgba(242,65,43,0.25))'; }
+    if (other) { other.style.animation = 'none'; other.style.color = ''; other.style.filter = ''; other.style.opacity = '0.3'; }
+    this.say(dir < 0 ? '03 Aufwärts gewählt — Türen schliessen' : '03 Abwärts gewählt — Türen schliessen');
+
+    const sign = dir < 0 ? 1 : -1;
+    this.after(120, () => this.setDoors(true, doorMs));
+    this.after(120 + doorMs, () => {
+      this.say('04 Geschlossen');
+      const A = this.els.plateA;
+      if (A && !calm) {
+        this.impulse = -sign * 0.5;
+        A.style.transition = 'transform 200ms cubic-bezier(.5,0,.7,1)';
+      }
+    });
+    this.after(120 + doorMs + (calm ? 0 : 200), () => {
+      const A = this.els.plateA;
+      if (A && !calm) {
+        this.impulse = sign * 1.8;
+        A.style.transition = 'transform 380ms cubic-bezier(.4,0,.55,1)';
+      }
+    });
+
+    const tGo = 120 + doorMs + (calm ? 160 : 460);
+    this.after(tGo, () => {
+      this.say(dir < 0 ? '05 Fahrt aufwärts' : '05 Fahrt abwärts');
+      if (this.els.dark) {
+        this.els.dark.style.transition = 'opacity 460ms ease-in';
+        this.els.dark.style.opacity = calm ? '0.35' : '0.72';
+      }
+      const sh = this.els.shaft;
+      if (sh && !calm) {
+        sh.style.opacity = '1';
+        const kf = dir < 0 ? 'luShaftDown' : 'luShaftUp';
+        sh.querySelectorAll('[data-shaft-bar]').forEach((bar, i) => {
+          bar.style.animation = kf + ' ' + (620 + i * 210) + 'ms linear infinite';
+          bar.style.animationDelay = (-i * 160) + 'ms';
+        });
+      }
+      const travelMs = this.scrollToLevel(level) || 900;
+
+      this.after(travelMs, () => {
+        this.say('06 Ankunft — Halten');
+        this.impulse = 0;
+        const A = this.els.plateA;
+        if (A) A.style.transition = 'transform 560ms cubic-bezier(.2,.7,.2,1)';
+        if (sh) { sh.style.opacity = '0'; this.after(380, () => sh.querySelectorAll('[data-shaft-bar]').forEach((bar) => { bar.style.animation = 'none'; })); }
+        if (this.els.dark) { this.els.dark.style.transition = 'opacity 620ms ease-out'; this.els.dark.style.opacity = '0'; }
+      });
+      this.after(travelMs + (calm ? 200 : 640), () => this.setDoors(false, doorMs + 120));
+      this.after(travelMs + (calm ? 200 : 640) + doorMs + 320, () => {
+        this.locked = false;
+        this.setButtonsEnabled(true);
+        const A = this.els.plateA;
+        if (A) A.style.transition = 'none';
+        [this.els.up, this.els.down].forEach((b) => { if (b) b.style.opacity = '1'; });
+        this.say(this.levelLabel(Math.round(this.shown * (this.levels - 1))));
+      });
+    });
+  }
+
+  nudge() {
+    const doorMs = this.calm ? 700 : (this.props.doorSpeed ?? 1350);
+    this.locked = true;
+    this.setButtonsEnabled(false);
+    this.say('03 Türen schliessen');
+    this.setDoors(true, doorMs);
+    this.after(doorMs + 380, () => { this.say('04 Geschlossen'); this.setDoors(false, doorMs); });
+    this.after(doorMs * 2 + 520, () => {
+      this.locked = false;
+      this.setButtonsEnabled(true);
+      this.say(this.levelLabel(Math.round(this.shown * (this.levels - 1))));
+    });
+  }
+
+  levelLabel(i) {
+    return ['00 Initial — Lift offen', '01 Nicht aus dem Katalog', '02 Menschen · Waren · Fahrzeuge', '03 Wenn Standard nicht passt', '04 Eigenfertigung'][Math.min(4, Math.max(0, i))];
+  }
+
+  /* ---------- scroll ---------- */
+  heroTop() {
+    const hero = this.els.hero;
+    if (!hero) return 0;
+    return hero.getBoundingClientRect().top + scrollY;
+  }
+
+  measure() {
+    const hero = this.els.hero;
+    if (!hero) return;
+    const span = hero.offsetHeight - innerHeight;
+    const p = span > 0 ? -hero.getBoundingClientRect().top / span : 0;
+    this.target = Math.min(1, Math.max(0, p));
+  }
+
+  scrollToLevel(i) {
+    const hero = this.els.hero;
+    if (!hero) return 0;
+    const span = hero.offsetHeight - innerHeight;
+    const p = this.levels > 1 ? i / (this.levels - 1) : 0;
+    return this.elevatorScroll(this.heroTop() + span * p);
+  }
+
+  abortScroll() {
+    if (this.scrollRaf) cancelAnimationFrame(this.scrollRaf);
+    this.scrollRaf = null;
+  }
+
+  /* elevator feel: slow release, long constant travel, decelerating stop + settle */
+  elevatorScroll(to, ms) {
+    this.abortScroll();
+    const from = scrollY;
+    const d = to - from;
+    if (Math.abs(d) < 1) return 0;
+    const dur = ms || (this.calm ? 900 : Math.min(2600, 900 + Math.abs(d) * 0.55));
+    const t0 = performance.now();
+    const ease = (t) => {
+      const core = t < 0.72
+        ? (t < 0.35 ? 1.35 * t * t / 0.35 : 0.4725 + (t - 0.35) * 1.31)
+        : 0.6075 + (1 - Math.pow(1 - (t - 0.72) / 0.28, 3)) * 0.3925;
+      const settle = t > 0.9 ? Math.sin((t - 0.9) / 0.1 * Math.PI) * 0.006 : 0;
+      return Math.min(1.02, core + settle);
+    };
+    const step = (now) => {
+      const t = Math.min(1, (now - t0) / dur);
+      scrollTo(0, from + d * ease(t));
+      if (t < 1) this.scrollRaf = requestAnimationFrame(step);
+      else this.scrollRaf = null;
+    };
+    this.scrollRaf = requestAnimationFrame(step);
+    return dur;
+  }
+
+  loop() {
+    if (this.rafId) cancelAnimationFrame(this.rafId);
+    const tick = () => {
+      const s = Math.min(0.9, Math.max(0.02, this.props.scrubSmoothing ?? 0.1));
+      this.shown += (this.target - this.shown) * s;
+      if (Math.abs(this.target - this.shown) < 0.0002) this.shown = this.target;
+      this.paint(this.shown);
+      if (this.running) this.rafId = requestAnimationFrame(tick);
+    };
+    this.rafId = requestAnimationFrame(tick);
+  }
+
+  paint(p) {
+    const gain = this.props.approachIntensity ?? 1;
+    const es = p * p * (3 - 2 * p);
+    const e = 1 - Math.pow(1 - es, 1.7);
+    const A = this.els.plateA;
+    const imp = this.impulse || 0;
+    if (A) A.style.transform = 'translate(-50%, calc(-50% + ' + (-4.8 * e * gain + imp).toFixed(2) + 'vh)) scale(' + (1 + 0.24 * e * gain).toFixed(4) + ')';
+    if (this.els.vignette) this.els.vignette.style.opacity = (0.94 + 0.06 * Math.sin(p * Math.PI)).toFixed(3);
+
+    const L = this.levels - 1;
+    const hc = this.els.heroCopy;
+    if (hc) {
+      const t0 = Math.min(1, Math.max(0, p * L / 0.62));
+      hc.style.opacity = (1 - t0 * t0).toFixed(3);
+      hc.style.transform = 'translateY(calc(clamp(60px, 9vh, 110px) - ' + (t0 * 110).toFixed(1) + 'px))';
+    }
+    const lg = this.els.legend;
+    if (lg) {
+      const t0 = Math.min(1, Math.max(0, p * L / 0.9));
+      lg.style.opacity = (1 - t0).toFixed(3);
+    }
+    const hd = this.els.header;
+    if (hd) {
+      if (this.compactHeader) {
+        hd.style.transform = 'translateY(0)';
+        hd.style.opacity = '1';
+        hd.style.pointerEvents = 'auto';
+      } else {
+        const th = Math.min(1, Math.max(0, this.target * L / 1.05));
+        const eh = th * th * (3 - 2 * th);
+        hd.style.transform = 'translateY(' + (-110 + eh * 110).toFixed(2) + '%)';
+        hd.style.opacity = eh.toFixed(3);
+        hd.style.pointerEvents = eh > 0.5 ? 'auto' : 'none';
+      }
+    }
+    for (let i = 1; i <= 4; i++) {
+      const st = this.els['stage' + i];
+      if (!st) continue;
+      const c = i / L, w = 0.62 / L;
+      const t = Math.max(-1.2, Math.min(1.2, (p - c) / w));
+      const a = Math.max(0, 1 - Math.abs(t));
+      st.style.opacity = (a * a * (3 - 2 * a)).toFixed(3);
+      st.style.transform = 'translateY(calc(-50% + ' + (-t * 110).toFixed(1) + 'px))';
+    }
+
+    const idx = Math.min(this.levels - 1, Math.max(0, Math.round(p * (this.levels - 1))));
+    if (!this.locked) this.say(this.levelLabel(idx));
+    if (this.els.ticks && this.lastIdx !== idx) {
+      this.lastIdx = idx;
+      const marks = this.els.ticks.children;
+      for (let i = 0; i < marks.length; i++) {
+        const bar = marks[i].firstElementChild;
+        if (!bar) continue;
+        const on = i === idx;
+        bar.style.width = on ? '20px' : '10px';
+        bar.style.background = on ? (this.props.brandAccent ?? '#f2412b') : 'rgba(17,19,24,0.85)';
+        marks[i].setAttribute('aria-current', on ? 'true' : 'false');
+      }
+    }
+  }
+}
+
+</script>
+</body>
+</html>
