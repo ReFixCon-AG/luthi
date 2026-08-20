@@ -3,14 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<script src="./support.js"></script>
+</head>
+<body>
+<!--
+  BILDNACHWEIS
+  assets/lift-primary.jpg zeigt eine reale Anlage der Lüthi-Aufzüge AG,
+  vom Kunden bestätigt und auf luethi-aufzuege.ch veröffentlicht.
+  Product Truth (Masterbrief §8) ist damit gewahrt: der gezeigte Aufzug ist
+  ein gebautes Lüthi-Objekt, kein Stockbild.
+-->
+<x-dc>
+<helmet>
 <!-- ---------- SEO / Social ----------
      Diese Tags standen bisher im <helmet>-Block von <x-dc> und wurden erst zur
      Laufzeit per JavaScript in den Head gehängt. Link-Vorschauen (WhatsApp,
      LinkedIn, Facebook, Slack) führen kein JavaScript aus und sahen deshalb
      weder Titel noch Beschreibung — die Tags gehören darum direkt hierhin. -->
 <title>LÜTHI Aufzüge — Aufzüge nach Mass</title>
-<meta name="description" content="LÜTHI Aufzüge – Aufzüge nach Mass. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen. Eigenfertigung in der Schweiz.">
+<meta name="description" content="Lüthi-Aufzüge AG, Leimiswil. Personen-, Glas-, Panorama-, Betten-, Lasten-, Güter- und Autoaufzüge. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen.">
 <link rel="canonical" href="https://www.xn--lthi-aufzge-thbi.ch/">
 <meta name="theme-color" content="#0b0c13">
 
@@ -18,7 +29,7 @@
 <meta property="og:site_name" content="LÜTHI Aufzüge">
 <meta property="og:locale" content="de_CH">
 <meta property="og:title" content="LÜTHI Aufzüge — Aufzüge nach Mass">
-<meta property="og:description" content="LÜTHI Aufzüge – Aufzüge nach Mass. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen. Eigenfertigung in der Schweiz.">
+<meta property="og:description" content="Lüthi-Aufzüge AG, Leimiswil. Personen-, Glas-, Panorama-, Betten-, Lasten-, Güter- und Autoaufzüge. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen.">
 <meta property="og:url" content="https://www.xn--lthi-aufzge-thbi.ch/">
 <meta property="og:image" content="https://www.xn--lthi-aufzge-thbi.ch/assets/og-image.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -27,7 +38,7 @@
 <meta property="og:image:alt" content="Glasaufzug in einem Sichtbetontreppenhaus — LÜTHI Aufzüge">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LÜTHI Aufzüge — Aufzüge nach Mass">
-<meta name="twitter:description" content="LÜTHI Aufzüge – Aufzüge nach Mass. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen. Eigenfertigung in der Schweiz.">
+<meta name="twitter:description" content="Lüthi-Aufzüge AG, Leimiswil. Personen-, Glas-, Panorama-, Betten-, Lasten-, Güter- und Autoaufzüge. Konstruiert für Gebäude, Nutzung und konkrete Anforderungen.">
 <meta name="twitter:image" content="https://www.xn--lthi-aufzge-thbi.ch/assets/og-image.jpg">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -55,19 +66,7 @@ window.__resources = {
   "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "/vendor/react-dom.production.min.js"
 };
 </script>
-<script src="./support.js"></script>
-</head>
-<body>
-<!--
-  BILDNACHWEIS — OFFEN
-  assets/lift-primary.jpg und assets/lift-secondary.jpg sind als Kundenmaterial
-  eingebunden, die Herkunft ist aber nicht belegt (Befund B4 im Review).
-  Vor jedem Kundentermin klären. Product Truth ist die oberste Regel des Masterbriefs.
--->
-<x-dc>
-<helmet>
-<!-- Titel, Meta-Tags, Favicons, Stylesheet und ds-Bundle stehen jetzt direkt im
-     <head> des Dokuments (siehe oben). Hier bleibt nur der Token-Layer. -->
+<!-- Titel, Meta-Tags, Favicons, Stylesheet und ds-Bundle stehen direkt im <head> (siehe oben). -->
 <style>
   /* ---------- Lüthi Token-Layer (W6) ----------
      Nocturne liefert Typo- und Spacing-Basis. Farben, Metalle und Textstufen
@@ -182,11 +181,11 @@ window.__resources = {
   /* ---------- Motion ---------- */
   @keyframes luShaftDown { from { transform: translateY(-120vh); } to { transform: translateY(140vh); } }
   @keyframes luShaftUp   { from { transform: translateY(140vh); }  to { transform: translateY(-120vh); } }
-  /* W2: ein einmaliger Bereitschaftsimpuls in neutralem Licht.
-     Rot bleibt ausschliesslich dem gewählten Zustand vorbehalten. */
-  @keyframes luReady {
-    0%, 100% { filter: drop-shadow(0 -1px 0 rgba(6,7,10,0.7)) drop-shadow(0 0 4px rgba(232,238,248,0.3)); }
-    50%      { filter: drop-shadow(0 -1px 0 rgba(6,7,10,0.7)) drop-shadow(0 0 10px rgba(232,238,248,0.62)) drop-shadow(0 0 22px rgba(232,238,248,0.28)); }
+  /* Blinkender Aufwärtspfeil im Bedienpanel — auf Wunsch wiederhergestellt. */
+  @keyframes luArrowBlink {
+    0%, 42%  { color: #c7cad0; filter: none; }
+    52%, 82% { color: #f2412b; filter: drop-shadow(0 0 14px rgba(242,65,43,0.75)); }
+    100%     { color: #c7cad0; filter: none; }
   }
   @keyframes luDrift {
     0%   { transform: scale(1.006) translate3d(0, 0, 0); }
@@ -316,7 +315,7 @@ window.__resources = {
         <div aria-hidden="true" style="position: absolute; right: -4px; top: 1px; bottom: -3px; width: 4px; border-radius: 0 3px 3px 0; pointer-events: none; background: linear-gradient(180deg, #26292e 0%, #1b1e22 42%, var(--lu-metal-d) 100%);"></div>
         <div aria-hidden="true" style="position: absolute; left: 38%; bottom: -30px; width: 210%; height: 34px; transform: translateX(-50%) skewX(14deg); pointer-events: none; background: radial-gradient(50% 100% at 52% 0%, rgba(11,12,19,0.55), rgba(11,12,19,0));"></div>
 
-        <button ref="{{ upRef }}" type="button" aria-label="Eine Ebene aufwärts" onClick="{{ onUp }}" style="position: relative; width: 100%; height: 40px; display: grid; place-items: center; border: 0; background: transparent; color: #c7cad0; cursor: pointer; transition: color 200ms ease, filter 200ms ease, opacity 200ms ease, transform 90ms ease;" style-hover="filter: brightness(1.32);" style-active="transform: translateY(1px); filter: brightness(0.92);">
+        <button ref="{{ upRef }}" type="button" aria-label="Eine Ebene aufwärts" onClick="{{ onUp }}" style="position: relative; width: 100%; height: 40px; display: grid; place-items: center; border: 0; background: transparent; color: #c7cad0; cursor: pointer; animation: luArrowBlink 2.4s ease-in-out infinite; transition: color 200ms ease, filter 200ms ease, opacity 200ms ease, transform 90ms ease;" style-hover="filter: brightness(1.32);" style-active="transform: translateY(1px); filter: brightness(0.92);">
           <svg width="26.4" height="33" viewBox="0 0 14 18" aria-hidden="true" style="display: block; filter: drop-shadow(0 -1px 0 rgba(6,7,10,0.7)) drop-shadow(0 1px 0 rgba(255,255,255,0.07)) drop-shadow(0 0 4px rgba(232,238,248,0.3)) drop-shadow(0 0 12px rgba(232,238,248,0.12));"><rect x="0.5" y="0" width="13" height="2" fill="currentColor"></rect><path d="M7 3.6 L13.5 9.2 H0.5 Z" fill="currentColor"></path><path d="M7 10.6 L13.5 16.2 H0.5 Z" fill="currentColor"></path></svg>
         </button>
         <button ref="{{ downRef }}" type="button" aria-label="Eine Ebene abwärts" onClick="{{ onDown }}" style="position: relative; width: 100%; height: 40px; display: grid; place-items: center; border: 0; background: transparent; color: #c7cad0; cursor: pointer; transition: color 200ms ease, filter 200ms ease, opacity 200ms ease, transform 90ms ease;" style-hover="filter: brightness(1.32);" style-active="transform: translateY(1px); filter: brightness(0.92);">
@@ -458,13 +457,12 @@ class Component extends DCLogic {
     addEventListener('click', this.onAnchor);
 
     this.applyPointerLanguage();
+    this.blink();
     this.measure();
     this.shown = this.target;
     this.running = true;
     this.loop();
 
-    /* W2: ein einziger Bereitschaftsimpuls, dann Ruhe. Kein Dauerblinken. */
-    this.after(1500, () => this.readyPulse());
   }
 
   componentDidUpdate() { this.applyProps(); }
@@ -505,14 +503,13 @@ class Component extends DCLogic {
     if (coarse && this.els.legendAct) this.els.legendAct.textContent = 'Tippen — Aufzugsaktion';
   }
 
-  readyPulse() {
-    if (this.calm) return;
-    [this.els.up, this.els.down].forEach((b) => {
-      const svg = b && b.querySelector('svg');
-      if (!svg) return;
-      svg.style.animation = 'luReady 1400ms ease-in-out 1';
-      this.after(1500, () => { svg.style.animation = 'none'; });
-    });
+  /* Das Blinken läuft dauerhaft, ausser bei reduzierter Bewegung.
+     Nach einer Fahrt wird es wieder aufgenommen — sonst bliebe es
+     nach dem ersten Klick für immer aus. */
+  blink() {
+    const up = this.els.up;
+    if (!up) return;
+    up.style.animation = this.calm ? 'none' : 'luArrowBlink 2.4s ease-in-out infinite';
   }
 
   toggleMenu() {
@@ -645,7 +642,14 @@ class Component extends DCLogic {
         this.setButtonsEnabled(true);
         const A = this.els.plateA;
         if (A) A.style.transition = 'none';
-        [this.els.up, this.els.down].forEach((b) => { if (b) b.style.opacity = '1'; });
+        [this.els.up, this.els.down].forEach((b) => {
+          if (!b) return;
+          b.style.opacity = '1';
+          b.style.color = '';
+          b.style.filter = '';
+          b.style.animation = '';
+        });
+        this.blink();
         this.say(this.levelLabel(Math.round(this.shown * (this.levels - 1))));
       });
     });
