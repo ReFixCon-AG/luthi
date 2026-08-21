@@ -156,15 +156,15 @@ window.__resources = {
         </div>
       </div>
 
-      <div data-lu="copy" style="position: absolute; left: clamp(24px, 6vw, 110px); top: clamp(58px, 11vh, 130px); bottom: clamp(22px, 4vh, 42px); width: clamp(260px, 42vw, 580px); display: flex; flex-direction: column; justify-content: space-between; gap: clamp(18px, 3.5vh, 52px); pointer-events: none;">
-        <div ref="{{ heroCopyRef }}" style="pointer-events: auto; transform: translateY(clamp(60px, 9vh, 110px)); will-change: transform, opacity;">
+      <div data-lu="copy" style="position: absolute; left: clamp(24px, 6vw, 110px); top: 0; bottom: 0; width: clamp(260px, 42vw, 580px); display: flex; flex-direction: column; justify-content: center; pointer-events: none;">
+        <div ref="{{ heroCopyRef }}" style="pointer-events: auto; will-change: transform, opacity;">
         <div style="font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin-left: 4px; margin-bottom: clamp(14px, 2.4vh, 26px);">LÜTHI Aufzüge</div>
         <h1 style="font-size: clamp(38px, 5.4vw, 90px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.02; margin: 0 0 clamp(12px, 2vh, 22px); text-shadow: 0 2px 44px rgba(11,12,19,0.7);">Aufzüge nach Mass.</h1>
         <p style="margin: 0 0 clamp(20px, 3.4vh, 40px); font-size: clamp(15px, 1.15vw, 19px); line-height: 1.5; max-width: 32ch; color: color-mix(in srgb, var(--color-text) 80%, transparent); text-wrap: pretty;">Konstruiert für Gebäude, Nutzung und konkrete Anforderungen.</p>
         <a href="#projekt" style="display: inline-flex; align-items: center; gap: 14px; padding: 13px 24px; border: 1px solid var(--brand); border-radius: var(--radius-md); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; transition: background 220ms ease, box-shadow 220ms ease;" style-hover="background: rgba(242,65,43,0.12); box-shadow: 0 0 30px rgba(242,65,43,0.24);">Projekt besprechen<span style="width: 20px; height: 1px; background: var(--brand);"></span></a>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; white-space: nowrap; pointer-events: none;"><span style="width: 22px; height: 1px; background: var(--brand);"></span><span style="font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent);">Scroll — Annäherung</span><span style="font-size: 9px; letter-spacing: 0.28em; color: color-mix(in srgb, var(--color-text) 30%, transparent);">·</span><span style="font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 42%, transparent);">Klick — Aufzugsaktion</span></div>
+      <div style="position: absolute; left: 0; bottom: clamp(22px, 4vh, 42px); display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; white-space: nowrap; pointer-events: none;"><span style="width: 22px; height: 1px; background: var(--brand);"></span><span style="font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent);">Scroll — Annäherung</span><span style="font-size: 9px; letter-spacing: 0.28em; color: color-mix(in srgb, var(--color-text) 30%, transparent);">·</span><span style="font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 42%, transparent);">Klick — Aufzugsaktion</span></div>
       </div>
 
       <div data-lu="panel" style="position: absolute; left: min(calc(67.5% - 5px), 100% - 74px); top: 50%; transform: translate(-50%, calc(-44% + 30px)); width: clamp(62px, calc(4.4vw + 10px), 86px); height: clamp(260px, 46vh, 520px); pointer-events: auto; border-radius: 4px; padding: clamp(12px, 1.8vh, 20px) 0 clamp(18px, 2.6vh, 30px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; background: radial-gradient(130% 55% at 28% 18%, rgba(255,255,255,0.045), rgba(255,255,255,0) 62%), radial-gradient(100% 48% at 72% 70%, rgba(10,11,14,0.4), rgba(10,11,14,0) 68%), radial-gradient(60% 30% at 55% 42%, rgba(255,255,255,0.025), rgba(255,255,255,0) 70%), linear-gradient(96deg, #34373c 0%, #3b3e44 16%, #303338 42%, #2a2d32 60%, #35383d 78%, #2e3136 100%); box-shadow: inset 1px 0 0 rgba(255,255,255,0.1), inset -1px 0 0 rgba(6,7,10,0.7), inset 0 1px 0 rgba(255,255,255,0.09), inset 0 -1px 0 rgba(5,6,9,0.65), 0 0 10px rgba(11,12,19,0.35), 0 1px 3px rgba(11,12,19,0.25);">
@@ -204,7 +204,7 @@ window.__resources = {
           <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Referenzen</a>
           <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Wartung</a>
           <a href="#" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Modernisierung</a>
-          <a href="#projekt" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Kontakt</a>
+          <a href="https://www.luethi-aufzuege.ch/de/kontakt.html" target="_blank" rel="noopener" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 78%, transparent); padding: 6px 0; border-bottom: 1px solid transparent; transition: color 200ms ease, border-color 200ms ease;" style-hover="color: var(--color-text); border-color: var(--brand);">Kontakt</a>
         </nav>
         <div style="display: flex; align-items: center; gap: 10px; margin-left: clamp(16px, 2.4vw, 38px); pointer-events: auto;">
           <svg width="14" height="14" sc-camel-view-box="0 0 14 14" aria-hidden="true" style="display: block;"><rect x="0" y="0" width="14" height="14" rx="2" fill="#f2412b"></rect><rect x="6" y="3" width="2" height="8" fill="#ffffff"></rect><rect x="3" y="6" width="8" height="2" fill="#ffffff"></rect></svg>
@@ -285,6 +285,7 @@ class Component extends DCLogic {
   componentDidMount() {
     this.applyProps();
     this.setDoors(false, 0);
+    this.setBlink(0);
     // Scroll-Gesetz wie auf der Mürner-Seite: ein Impuls = eine Etage, kein Freilauf
     this.MAX = this.levels - 1;
     this.cur = 0; this.animating = false; this._lockUntil = 0;
@@ -367,6 +368,16 @@ class Component extends DCLogic {
   get calm() {
     const pref = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     return pref || !!(this.props.calmMotion ?? false);
+  }
+
+  /* Blinkrhythmus der Panel-Pfeile je Etage: Etage 00 nur abwärts,
+     Zwischenetagen beide, unterste Etage nur aufwärts */
+  setBlink(level) {
+    const MAX = this.levels - 1;
+    const on = (b, delay) => { if (!b) return; b.style.color = ''; b.style.filter = ''; b.style.opacity = '1'; b.style.animation = 'luArrowBlink 2.4s ease-in-out infinite'; b.style.animationDelay = delay; };
+    const off = (b) => { if (!b) return; b.style.animation = 'none'; b.style.animationDelay = '0ms'; b.style.color = '#c7cad0'; b.style.filter = 'none'; b.style.opacity = '0.55'; };
+    if (level > 0) on(this.els.up, '0ms'); else off(this.els.up);
+    if (level < MAX) on(this.els.down, level > 0 ? '-1200ms' : '0ms'); else off(this.els.down);
   }
 
   /* ---------- doors: real centre-opening glass leaves over the aperture ---------- */
@@ -473,6 +484,7 @@ class Component extends DCLogic {
       }
       this.locked = false;
       const travelMs = this.scrollToLevel(level) || 900;
+      this.cur = level;
       this.locked = true;
 
       // O3: arrival — decelerate, stabilise in stillness, only then open
@@ -489,14 +501,14 @@ class Component extends DCLogic {
         this.locked = false;
         const A = this.els.plateA;
         if (A) A.style.transition = 'none';
-        [this.els.up, this.els.down].forEach((b) => { if (b) b.style.opacity = '1'; });
+        this.setBlink(Math.round(this.shown * (this.levels - 1)));
         this.say(this.levelLabel(Math.round(this.shown * (this.levels - 1))));
       });
     });
   }
 
-  /* Scroll-Fahrt: eine Etage pro Impuls — Fahrt mit Massephysik und Schachtlicht,
-     ohne Türzyklus (den behalten die Tasten) */
+  /* Scroll-Fahrt: eine Etage pro Impuls — Fahrt mit Massephysik, Schachtlicht
+     und Türzyklus (Türen schliessen zur Abfahrt, öffnen bei Ankunft) */
   travelTo(level, dir) {
     if (this.animating || this.locked) return;
     const calm = this.calm;
@@ -519,12 +531,17 @@ class Component extends DCLogic {
     }
     const travelMs = this.elevatorScroll(this.targetTop(level)) || 900;
     this.cur = level;
+    // Türzyklus in die Fahrt eingepasst: nie länger als knapp die halbe Fahrtdauer
+    const doorMs = Math.max(260, Math.min(calm ? 700 : (this.props.doorSpeed ?? 1350), travelMs * 0.42));
+    this.setDoors(true, doorMs);
     this.after(travelMs, () => {
       this.say('06 Ankunft — Halten');
+      this.setDoors(false, doorMs + 120);
       this.impulse = 0;
       if (A) A.style.transition = 'transform 520ms cubic-bezier(.2,.7,.2,1)';
       if (sh) { sh.style.opacity = '0'; this.after(360, () => sh.querySelectorAll('[data-shaft-bar]').forEach((b) => { b.style.animation = 'none'; })); }
       if (this.els.dark) { this.els.dark.style.transition = 'opacity 560ms ease-out'; this.els.dark.style.opacity = '0'; }
+      this.setBlink(level);
       this.after(560, () => { if (A) A.style.transition = 'none'; this.say(this.levelLabel(level)); });
     });
   }
@@ -623,7 +640,7 @@ class Component extends DCLogic {
     if (hc) {
       const t0 = Math.min(1, Math.max(0, p * L / 0.62));
       hc.style.opacity = (1 - t0 * t0).toFixed(3);
-      hc.style.transform = 'translateY(calc(clamp(60px, 9vh, 110px) - ' + (t0 * 110).toFixed(1) + 'px))';
+      hc.style.transform = 'translateY(' + (-t0 * 110).toFixed(1) + 'px)';
     }
     const hd = this.els.header;
     if (hd) {
